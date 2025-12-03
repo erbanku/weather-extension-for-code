@@ -56,7 +56,7 @@ Changes take effect immediately.
 
 ## Supported Languages
 
-<!-- Simplified Chinese (zh), Traditional Chinese (zh-hant), English (en), Uighur (ug), German (de), Spanish (es), French (fr), Italian (it), Japanese (ja), Korean (ko), Russian (ru), Hindi (hi), Thai (th), Arabic (ar), Portuguese (pt), Bengali (bn), Malay (ms), Dutch (nl), Greek (el), Latin (la), Swedish (sv), Indonesian (id), Polish (pl), Turkish (tr), Czech (cs), Estonian (et), Vietnamese (vi), Filipino (fil), Finnish (fi), Hebrew (he), Icelandic (is), Norwegian (nb) -->
+Simplified Chinese (zh), Traditional Chinese (zh-hant), English (en), Uighur (ug), German (de), Spanish (es), French (fr), Italian (it), Japanese (ja), Korean (ko), Russian (ru), Hindi (hi), Thai (th), Arabic (ar), Portuguese (pt), Bengali (bn), Malay (ms), Dutch (nl), Greek (el), Latin (la), Swedish (sv), Indonesian (id), Polish (pl), Turkish (tr), Czech (cs), Estonian (et), Vietnamese (vi), Filipino (fil), Finnish (fi), Hebrew (he), Icelandic (is), Norwegian (nb)
 
 ## Changelog
 
