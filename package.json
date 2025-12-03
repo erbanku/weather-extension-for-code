@@ -1,6 +1,6 @@
 {
-    "name": "weather",
-    "displayName": "Weather",
+    "name": "weather-for-code",
+    "displayName": "Weather for Code",
     "description": "Weather extension with support for cities worldwide",
     "version": "1.2.0",
     "engines": {
@@ -16,7 +16,7 @@
     "icon": "images/logo.png",
     "repository": {
         "type": "git",
-        "url": "git@github.com:chendonming/weather.git"
+        "url": "https://github.com/erbanku/weather-extension-for-code.git"
     },
     "main": "./extension.js",
     "contributes": {
