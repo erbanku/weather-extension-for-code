@@ -1,84 +1,166 @@
 {
-  "name": "weather",
-  "displayName": "weather",
-  "description": "天气小插件，支持全球城市",
-  "version": "1.1.4",
-  "engines": {
-    "vscode": "^1.48.0"
-  },
-  "publisher": "chendm",
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "*"
-  ],
-  "icon": "images/logo.png",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:chendonming/weather.git"
-  },
-  "main": "./extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "extension.weather",
-        "title": "Weather天气更新/查看"
-      },
-      {
-        "command": "extension.replacecity",
-        "title": "Replacecity更换城市"
-      }
+    "name": "weather",
+    "displayName": "Weather",
+    "description": "Weather extension with support for cities worldwide",
+    "version": "1.2.0",
+    "engines": {
+        "vscode": "^1.106.1"
+    },
+    "publisher": "erbanku",
+    "categories": [
+        "Other"
     ],
-    "configuration": [
-      {
-        "title": "weather天气插件",
-        "properties": {
-          "weather.key": {
-            "type": "string",
-            "default": "579fbf44a7b24519a9d50e35258c1467",
-            "description": "输入您的和风天气key密钥享受更多API调用次数, 天气插件是全局插件因此改动后需要重启"
-          },
-          "weather.position": {
-            "type": "string",
-            "default": "left",
-            "enum": [
-              "left",
-              "right"
-            ],
-            "description": "改变插件的显示位置, 天气插件是全局插件因此改动后需要重启"
-          },
-          "weather.autoUpdate": {
-            "type": "boolean",
-            "default": true,
-            "description": "开启后每隔两小时自动更新下天气, 天气插件是全局插件因此改动后需要重启"
-          },
-          "weather.showLifeIndex": {
-            "type": "boolean",
-            "default": true,
-            "description": "开启后显示生活指数, 天气插件是全局插件因此改动后需要重启"
-          }
-        }
-      }
-    ]
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "yarn run lint",
-    "test": "node ./test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/glob": "^7.1.1",
-    "@types/mocha": "^7.0.1",
-    "@types/node": "^12.11.7",
-    "@types/vscode": "^1.48.0",
-    "eslint": "^6.8.0",
-    "glob": "^7.1.6",
-    "mocha": "^7.0.1",
-    "typescript": "^3.7.5",
-    "vscode-test": "^1.3.0"
-  },
-  "dependencies": {
-    "axios": "^0.20.0"
-  }
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "icon": "images/logo.png",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:chendonming/weather.git"
+    },
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.weather",
+                "title": "Weather: View/Update Weather"
+            },
+            {
+                "command": "extension.replacecity",
+                "title": "Weather: Change City"
+            },
+            {
+                "command": "extension.setupWizard",
+                "title": "Weather: Run Setup Wizard"
+            }
+        ],
+        "configuration": [
+            {
+                "title": "Weather Extension",
+                "properties": {
+                    "weather.key": {
+                        "type": "string",
+                        "default": "579fbf44a7b24519a9d50e35258c1467",
+                        "description": "Your QWeather API key. Get a free key at https://dev.qweather.com/. WARNING: Default API key will expire soon."
+                    },
+                    "weather.apiUrl": {
+                        "type": "string",
+                        "default": "https://devapi.qweather.com",
+                        "description": "Weather API server URL (e.g., https://api.qweather.com). Required if using paid API key."
+                    },
+                    "weather.language": {
+                        "type": "string",
+                        "default": "en",
+                        "enum": [
+                            "zh",
+                            "zh-hant",
+                            "en",
+                            "ug",
+                            "de",
+                            "es",
+                            "fr",
+                            "it",
+                            "ja",
+                            "ko",
+                            "ru",
+                            "hi",
+                            "th",
+                            "ar",
+                            "pt",
+                            "bn",
+                            "ms",
+                            "nl",
+                            "el",
+                            "la",
+                            "sv",
+                            "id",
+                            "pl",
+                            "tr",
+                            "cs",
+                            "et",
+                            "vi",
+                            "fil",
+                            "fi",
+                            "he",
+                            "is",
+                            "nb"
+                        ],
+                        "enumDescriptions": [
+                            "简体中文 (Simplified Chinese)",
+                            "繁體中文 (Traditional Chinese)",
+                            "English (US)",
+                            "ئۇيغۇرچە (Uighur)",
+                            "Deutsch (German)",
+                            "Español (Spanish)",
+                            "Français (French)",
+                            "Italiano (Italian)",
+                            "日本語 (Japanese)",
+                            "한국어 (Korean)",
+                            "Русский (Russian)",
+                            "हिन्दी (Hindi)",
+                            "ไทย (Thai)",
+                            "العربية (Arabic)",
+                            "Português (Portuguese)",
+                            "বাংলা (Bengali)",
+                            "Bahasa Melayu (Malay)",
+                            "Nederlands (Dutch)",
+                            "Ελληνικά (Greek)",
+                            "Latina (Latin)",
+                            "Svenska (Swedish)",
+                            "Bahasa Indonesia (Indonesian)",
+                            "Polski (Polish)",
+                            "Türkçe (Turkish)",
+                            "Čeština (Czech)",
+                            "Eesti (Estonian)",
+                            "Tiếng Việt (Vietnamese)",
+                            "Filipino",
+                            "Suomi (Finnish)",
+                            "עברית (Hebrew)",
+                            "Íslenska (Icelandic)",
+                            "Norsk Bokmål (Norwegian)"
+                        ],
+                        "description": "Weather data display language. Changes take effect immediately for new weather queries."
+                    },
+                    "weather.position": {
+                        "type": "string",
+                        "default": "left",
+                        "enum": [
+                            "left",
+                            "right"
+                        ],
+                        "description": "Status bar display position. Changes take effect on next weather update."
+                    },
+                    "weather.autoUpdate": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Automatically update weather every 2 hours. Changes take effect immediately."
+                    },
+                    "weather.showLifeIndex": {
+                        "type": "boolean",
+                        "default": true,
+                        "description": "Show life index information in status bar. Changes take effect on next weather update."
+                    }
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "yarn run lint",
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "^24.10.1",
+        "@types/vscode": "^1.106.1",
+        "eslint": "^9.39.1",
+        "glob": "^13.0.0",
+        "mocha": "^11.7.5",
+        "typescript": "^5.9.3",
+        "@vscode/test-electron": "^2.5.2"
+    },
+    "dependencies": {
+        "axios": "^1.13.2"
+    }
 }
