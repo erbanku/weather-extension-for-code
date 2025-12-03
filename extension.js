@@ -318,6 +318,7 @@ async function activate(context) {
             if (!locationId || !location) {
                 location = await vscode.window.showInputBox({
                     placeHolder: t("enterCity"),
+                    value: "Haidian",
                 });
                 locationId = await pickLocation(location);
             }
@@ -375,6 +376,7 @@ async function activate(context) {
         async function () {
             const location = await vscode.window.showInputBox({
                 placeHolder: t("enterCity"),
+                value: "Haidian",
             });
             if (location === undefined) {
                 return;
@@ -397,6 +399,7 @@ async function activate(context) {
         async function (position = 2) {
             const location = await vscode.window.showInputBox({
                 placeHolder: t("enterCity"),
+                value: "Haidian",
             });
             const locationId = await pickLocation(location);
             if (location && locationId) {
