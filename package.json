@@ -2,7 +2,7 @@
     "name": "weather-for-code",
     "displayName": "Weather for Code",
     "description": "Weather extension with support for cities worldwide",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "engines": {
         "vscode": "^1.106.1"
     },
