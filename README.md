@@ -6,6 +6,9 @@
 
 Display weather in your VS Code status bar.
 
+Marketplace link:
+https://marketplace.visualstudio.com/items?itemName=erbanku.weather-for-code
+
 ## Features
 
 - Worldwide city support
